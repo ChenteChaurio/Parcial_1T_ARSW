@@ -10,6 +10,8 @@ public class ThreatPiDigits extends Thread{
 
     public ThreatPiDigits(int start, int count){
         digits = new byte[count];
+        this.start = start;
+        this.count = count;
     }
 
     public byte[] getDigits() {

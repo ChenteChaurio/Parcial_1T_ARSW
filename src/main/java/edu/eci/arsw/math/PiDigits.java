@@ -31,14 +31,10 @@ public class PiDigits {
         if (count < 0) {
             throw new RuntimeException("Invalid Interval");
         }
-        int vari = (start+count)/numThreads;
+        int vari = (count)/numThreads;
         for (int i = 0; i < numThreads; i++) {
-            //System.out.print(variable+"    ");
             int newStart = start+(vari*i);
-            System.out.println(newStart+"    " );
-            int newCount = newStart+vari;
-            System.out.print(newCount+"    ");
-            ThreatPiDigits t = new ThreatPiDigits(newStart,newCount);
+            ThreatPiDigits t = new ThreatPiDigits(newStart,vari);
             threats.add(t);
         }
         for (ThreatPiDigits t : threats){
@@ -58,7 +54,6 @@ public class PiDigits {
             for (byte p :t.getDigits()){
                 if (!(auxy >= digits.length)){
                     digits[auxy] = p;
-                    System.out.println(p);
                     auxy ++;
                 }
             }
